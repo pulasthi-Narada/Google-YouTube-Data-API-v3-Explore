@@ -49,7 +49,7 @@ typings/
 
 # Optional npm cache directory
 .npm
-
+json.json
 # Optional eslint cache
 .eslintcache
 

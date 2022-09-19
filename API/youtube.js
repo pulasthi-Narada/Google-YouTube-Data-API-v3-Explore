@@ -5,10 +5,10 @@ dotenv.config();
 
 export default axios.create({
   baseURL: 'https://www.googleapis.com/youtube/v3',
-  headers: {},
+  headers: {
+    // Authorization: 'Bearer ',
+  },
   params: {
-    part: 'snippet',
-    maxResults: 5,
     key: process.env.API_KEY,
   },
 });

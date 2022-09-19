@@ -2,7 +2,7 @@
   "name": "google-youtube-data-api-v3-explore-with-node",
   "version": "1.0.0",
   "description": "Explore the google YouTube data API v3 with Node.js",
-  "main": "",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/pulasthi-Narada/Google-YouTube-Data-API-v3-Explore-With-Node.js#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "dotenv": "^16.0.2"
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1"
   }
 }
