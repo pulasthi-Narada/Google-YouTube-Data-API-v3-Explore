@@ -6,9 +6,6 @@ dotenv.config();
 export default axios.create({
   baseURL: 'https://www.googleapis.com/youtube/v3',
   headers: {
-    // Authorization: 'Bearer ',
-  },
-  params: {
-    key: process.env.API_KEY,
+    Authorization: `Bearer ${process.env.accessToken} `,
   },
 });
