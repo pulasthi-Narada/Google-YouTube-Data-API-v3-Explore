@@ -51,6 +51,39 @@ const search = async (
   }
 };
 
+/*
+getChannelActivities function get information about an action that a particular channel has taken on YouTube. 
+The actions reported in activity feeds include rating a video, sharing a video, marking a video as a favorite, uploading a video, and so forth. 
+Each activity resource identifies the type of action, the channel associated with the action, and the resource(s) associated with the action, such as the video that was rated or uploaded.
+
+reference: https://developers.google.com/youtube/v3/docs/activities
+
+function parameters
+
+channelId: string
+youtube channel Id
+
+maxResults: number
+The maxResults parameter specifies the maximum number of items that should be returned in the result set. 
+Acceptable values are 0 to 50, inclusive. The default value is 5.
+*/
+
+const getChannelActivities = async (channelId, maxResults = 5) => {
+  try {
+    const responce = await youTube.get('/activities', {
+      params: {
+        part: 'snippet',
+        channelId: channelId,
+        maxResults: maxResults,
+      },
+    });
+
+    return responce.data;
+  } catch (e) {
+    return e;
+  }
+};
+
 const getActivities = async (maxResults = 5) => {
   try {
     const responce = await youTube.get('/activities', {
@@ -71,7 +104,7 @@ const getActivities = async (maxResults = 5) => {
 const router = express.Router();
 
 router.get('/test', async (req, res) => {
-  const data = await search();
+  const data = await getChannelActivities('UCrYxFt6W7pNNQJfIdvbbmqw');
   res.json(data);
 });
 

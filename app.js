@@ -16,11 +16,11 @@ app.get('/', function (req, res) {
 // Redirect to Google's OAuth 2.0 server
 app.get('/authorization', (req, res) => {
   res.redirect(
-    `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.client_id}&access_type=offline&redirect_uri=${process.env.redirect_uri}&response_type=code&scope=${process.env.scope}`,
+    `https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.client_id}&redirect_uri=${process.env.redirect_uri}&response_type=code&scope=${process.env.scope}`,
   );
 });
 
-//
+// //Exchange authorization code for access tokens 
 app.get('/after', async (req, res) => {
   if (req.query.code) {
     const authorizationCode = req.query.code;
